@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.svg">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <a href="index.html" style="text-decoration: none;">
+                <div class="logo-with-text">
+                    <p class="text"> cooking&nbsp;
+                    <img src="img/logo.svg" alt="" >
+                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree
+            </div>
+                </a>
+            <span class="search"><a href="search.html">Поиск </a> </span>
+            <a href="add-recipe.html">
+            <button class="add-recipe">
+                Добавить рецепт
+            </button>
+            </a>
+            </div>
+        </header>
+        <main class="main">
+            <div class="form-search">
+                <div id="searchResults"></div>
+                <form id="search-form" action="">
+                    <input type="text" placeholder="Ищите рецепты" id="search-input">
+                    <button type="submit"><img src="img/search.svg" alt="" style="width: 160%;"></button>
+                </form>
+            </div>
+            <script>
+
+            </script>
+
+            <div class="middle-container" id="recipesContainer" style="margin-top: 5%;" data-filterable>
+                
+                <div class="green-tea-tort">
+                    <img src="img/4.jpg" alt="" style="width: 31%; height: 100%;">
+                    <div class="green-tea-description">
+                    <h4>Торт с зеленым чаем</h4>
+                    <p id="author"> Автор: Mari1308 | 2023-04-25 <br> </p>
+                        <p id="description"> Я приготовила тортик с зеленым чаем, с зеленым бисквитом и ароматным молочным <br>
+                        джемом из зеленого чая! <br>
+                        Вкус зеленого чая действительно хорош, он сладкий и такой вкусный!</p>
+                    <button class="middle-container-button">
+                        Перейти к рецепту
+                    </button>
+                    </div>
+                </div>
+                
+                    <div class="chocolate-berry-tort">
+                        <img src="img/5.jpg" alt="" style="width: 31%; height: 100%;">
+                        <div class="chocolate-berry-discription">
+                        <h4>Шоколадно-ягодный торт</h4>
+                        <p id="author">Автор: Anonim22  | 2023-04-19</p>
+                        <p id="description">
+                            Муссовый торт со сливочным сыром (шоколадный чизкейк) с ярко-розовыми и шоколадными <br> слоями. <br>
+                            Я хотел создать идеальное сочетание ягодного мусса и шоколадного чизкейка!
+                        </p>
+                        <button class="middle-container-button-1">
+                            Перейти к рецепту
+                        </button>
+                        </div>
+                    </div>
+            </div>
+        </main>
+        <footer class="footer" id="footer">
+            <footer class="footer">
+                <div class="footer-container">
+                    <p class="left-text">
+                        Связаться с нами
+                                <br> <br>
+                        Политика конфеденциальности
+                    </p>
+                    <div class="logo-with-text-2">
+                        <p class="text"> cooking&nbsp;
+                        <img src="img/logo.svg" alt="" >
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree
+                </div>
+                </div>
+            </footer>
+        </div>
+        <script src="js/script-for-page.js"></script>
+        <script src="js/script-for-search.js"></script>
+        </footer>
+
+    </div>
+</body>
+</html>

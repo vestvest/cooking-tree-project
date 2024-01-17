@@ -1,0 +1,135 @@
+// Функция для получения данных из формы
+document.querySelector("#button-2").onclick =  getRecipeData;
+function getRecipeData() {
+    // Получаем данные из формы
+    const recipe = document.getElementById("recipe").value;
+    const author = document.getElementById("author").value;
+    const description = document.getElementById("your-recipe").value;
+    const photo = document.getElementById("photo-1");
+    const addPhoto = photo.files[0];
+
+    // Проверяем, что данные заполнены правильно
+    if (recipe === "" || author === "" || description === "") {
+      alert("Заполните все поля формы");
+      return;
+    }
+
+    if (!addPhoto) {
+        alert("Загрузите изображение");
+        return;
+    }
+
+    
+    // Сохраняем данные в локальное хранилище
+    localStorage.setItem("recipe", recipe);
+    localStorage.setItem("author", author);
+    localStorage.setItem("description", description);
+
+    // Чтение файла и преобразование его в Data URL
+    const reader = new FileReader();
+    reader.readAsDataURL(addPhoto);
+    reader.onload = function () {
+       localStorage.setItem("photo", reader.result);
+    };
+   
+
+    console.log("Данные успешно сохранены");
+     // Удаляем форму с экрана
+     document.getElementById("main").remove();
+     document.getElementById("footer-2").remove();
+  
+  // Добавляем надпись
+  const message = document.createElement("after-form");
+  message.textContent = "Ваши данные отправлены!";
+  message.style.fontSize = "50px";
+  message.style.position = "absolute";
+  message.style.top = "400px";
+  message.style.left = "600px";
+  document.body.appendChild(message);
+
+
+}
+
+
+
+ 
+
+
+    function updateMainPage() {
+    // Получаем данные из локального хранилища
+    const recipe = localStorage.getItem("recipe");
+    const author = localStorage.getItem("author");
+    const description = localStorage.getItem("description");
+    const photo = localStorage.getItem("photo");
+  
+    
+    const middleContainer = document.querySelector(".middle-container");
+
+    
+  
+    // Добавляем новый рецепт в контейнер
+    const newRecipe = document.createElement("div");
+    newRecipe.classList.add("new-recipe");
+    newRecipe.innerHTML = `
+        <div class="new-recipe" style="padding-top:4%; display: flex;flex-direction: row; gap: 1.5em;">
+      <img src="${photo}" alt="" style="width: 31%; height: 25vh;">
+      <div class="new-recipe-description">
+        <h4 style="color: #3D2F2B; font-size: 24px; font-style: normal; font-family: Montserrat; font-weight: 600; line-height: normal; letter-spacing: 0.16px;
+    margin-top: 0;">${recipe}</h4>
+        <p id="author" style="font-size: 20px; margin-top: -1.8%;"> Автор: ${author} | ${new Date().toLocaleDateString()}</p>
+        <p id="description" style="font-size: 20px;">${description}</p>
+        <button class="middle-container-button">
+          Перейти к рецепту
+        </button>
+      </div>
+      </div>
+    `;
+    middleContainer.appendChild(newRecipe);
+
+    
+  }
+  
+  // Обработчик события изменения данных в локальном хранилище
+  window.addEventListener("DOMContentLoaded", updateMainPage);
+
+
+
+
+
+
+
+
+
+  function search(query) {
+
+	
+	// Получаем список всех элементов в контейнере
+	const recipes = document.querySelectorAll(".middle-container .new-recipe, .middle-container .green-tea-tort, .middle-container .chocolate-berry-tort");
+  
+	// Создаем пустой список результатов поиска
+	const results = [];
+  
+	// Проходим по всем элементам
+	for (const recipe of recipes) {
+		// Проверяем, содержит ли элемент поисковый запрос
+		if (recipe.textContent.toLowerCase().includes(query.toLowerCase())) {
+			// Добавляем элемент в список результатов поиска
+			results.push(recipe);
+		}
+	}
+  
+	// Возвращаем список результатов поиска
+	return results;
+}
+
+document.querySelector("#search-input").addEventListener("input", (event) => {
+	// Получаем поисковый запрос
+	const query = event.target.value;
+
+	// Выполняем поиск
+	const results = search(query);
+
+	// Обновляем список результатов поиска
+	document.querySelector("#recipesContainer").innerHTML = results.map((recipe) => recipe.outerHTML).join("");
+});
+

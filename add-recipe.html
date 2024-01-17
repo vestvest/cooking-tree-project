@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить рецепт</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.svg">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;">
+            <div class="logo-with-text">
+                <p class="text"> cooking&nbsp;
+                <img src="img/logo.svg" alt="" >
+                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree
+        </div>
+            </a>
+        <span class="search"><a href="search.html">Поиск </a> </span>
+        <a href="add-recipe.html">
+        <button class="add-recipe">
+            Добавить рецепт
+        </button>
+        </a>
+        </div>
+        </header>
+        <main class="main" id="main">
+            <div class="fourth-line">
+                    <h3>Добавить рецепт</h3>
+                 <hr align="center" width="65%">
+            </div>
+            <div class="form-recipe" id="form-recipe">
+            <form id="form-2" action="add-recipe.html" method="post">
+                <fieldset>
+                <input id="recipe" type="text" name="recipe" placeholder="Введите название рецепта">
+                <hr>
+                <input id="author" type="text" name="author" placeholder="Кто автор?">
+                <hr>
+                <textarea id="your-recipe" name="your-recipe" placeholder="Опишите ваш рецепт" cols="30" 
+                rows="10" maxlength="250"></textarea>
+                <hr>
+                <div class="add-photo">
+                <p> Добавьте фото</p>
+                <div>
+                <input id="photo-1" type="file" name="file_" accept="image/png, image/jpeg, image/jpg"
+                 class="photo_1">
+                <label for="photo" class="photo_">
+                    <span class="input-photo-icon-wrapper">
+                        <img id="icon" src="img/upload-photo.svg" alt="Выбрать файл" class="photo-icon" width="40">
+                    </span>
+                </label>
+                </div>
+                </div>
+            </form>
+            </fieldset>
+            <button id="button-2" type="submit" class="form-button" onclick="getRecipeData()">Добавить</button>
+            </div>
+        </main>
+        <footer class="footer-2" id="footer-2">
+            <div class="footer-container">
+                <p class="left-text">
+                    Связаться с нами
+                            <br> <br>
+                    Политика конфеденциальности
+                </p>
+                <div class="logo-with-text-2">
+                    <p class="text"> cooking&nbsp;
+                    <img src="img/logo.svg" alt="" >
+                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree
+            </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/script-for-form.js"></script>
+</body>
+</html>
